@@ -1,9 +1,12 @@
-import Image from "next/image";
+import { Button } from "@/shared/ui/button";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div>
       <h1>Hello world!</h1>
+      {Array.from([1, 10]).map((el) => {
+        return <Button size={"lg"}>Hello, button! {el}</Button>;
+      })}
     </div>
   );
 }
