@@ -1,6 +1,6 @@
 'use client'
 
-import {Button} from "@/shared/ui/button";
+import {Button} from "@/shared/ui/Button/button";
 import {useRoute} from "@/shared/hooks/useRoute";
 import BlogSection from "@/widgets/blog/ui/BlogSection";
 import {IBlogCard} from "@/widgets/blog/types/BlogCard.interface";
@@ -50,7 +50,6 @@ const mockBlogs: IBlogCard[] = [
         author: "Basarat Ali Syed",
         type: "TypeScript",
     },
-    // Добавь ещё при необходимости
 ];
 
 export default function Home() {

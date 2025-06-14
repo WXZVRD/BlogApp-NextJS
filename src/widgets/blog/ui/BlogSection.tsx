@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@/shared/ui/button";
+import { Button } from "@/shared/ui/index";
 import BlogCard from "@/widgets/blog/ui/BlogCard";
 import { IBlogCard } from "@/widgets/blog/types/BlogCard.interface";
 import { motion, AnimatePresence } from "framer-motion";

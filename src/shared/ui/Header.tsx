@@ -1,26 +1,28 @@
 'use client'
 import Link from "next/link";
-import { Button } from "@/shared/ui/button";
-import { Input } from "@/shared/ui/input";
-import {Container} from "@/shared/ui/Container";
+import { Button, Input, Container } from "@/shared/ui/index";
+import useUser from "@/feautures/user/hooks/useUser";
+import UserMenu from "@/feautures/user/ui/UserMenu";
 
 export default function Header() {
+    const [ isLoggedIn ] = useUser()
+
     return (
-        <header className="bg-[#1E1E1E] shadow-sm sticky top-0 z-50">
+        <header className="bg-white dark:bg-[#1E1E1E] shadow-sm sticky top-0 z-50">
             <Container>
                 <div className="container mx-auto flex items-center justify-between py-4 px-6">
 
                     <nav className="flex items-center space-x-6">
                         <Link href="/public"
-                              className="mr-20 font-extrabold text-white   transition-colors">
+                              className="mr-20 font-extrabold text-gray-600 dark:text-white transition-colors">
                             Your Logo
                         </Link>
 
-                        <Link href="/public" className="text-white  transition-colors">
+                        <Link href="/public" className="text-gray-600 dark:text-white  transition-colors">
                             Home
                         </Link>
                         <Link href="/reviews"
-                              className=" no-underline focus:outline-none focus:ring-0 text-white transition-colors">
+                              className=" no-underline focus:outline-none focus:ring-0 text-gray-600 dark:text-white transition-colors">
                             Reviews
                         </Link>
                     </nav>
@@ -32,12 +34,20 @@ export default function Header() {
                     />
 
                     <div className="flex items-center space-x-6">
-                        <Button variant="outline" className="ml-2">
-                            Sign In
-                        </Button>
-                        <Button>
-                            Log In
-                        </Button>
+                        {isLoggedIn ? (
+                            <>
+                                <UserMenu/>
+                            </>
+                        ) : (
+                            <>w
+                                <Button variant="outline" className="ml-2">
+                                    Sign In
+                                </Button>
+                                <Button>
+                                    Log In
+                                </Button>
+                            </>
+                        )}
                     </div>
                 </div>
             </Container>

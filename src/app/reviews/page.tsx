@@ -1,5 +1,5 @@
 'use client'
-import {Button} from "@/shared/ui/button";
+import {Button} from "@/shared/ui/Button/button";
 import {useRoute} from "@/shared/hooks/useRoute";
 
 export default function ReviewsPage() {

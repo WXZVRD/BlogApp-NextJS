@@ -1,6 +1,6 @@
 'use client'
 import {useRoute} from "@/shared/hooks/useRoute";
-import {Button} from "@/shared/ui/button";
+import {Button} from "@/shared/ui/Button/button";
 
 export default function ReviewEditPage() {
     const goTo = useRoute()
