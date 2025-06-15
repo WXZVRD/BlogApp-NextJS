@@ -3,9 +3,9 @@
 import {Button} from "@/shared/ui/Button/button";
 import {useRoute} from "@/shared/hooks/useRoute";
 import BlogSection from "@/widgets/blog/ui/BlogSection";
-import {IBlogCard} from "@/widgets/blog/types/BlogCard.interface";
+import {IReview} from "@/entities/review/types";
 
-const mockBlogs: IBlogCard[] = [
+const mockReviews: IReview[] = [
     {
         id: 1,
         title: "Witcher 3: the wild hunt is the shit??",
@@ -13,6 +13,7 @@ const mockBlogs: IBlogCard[] = [
             "Radix UI and Tailwind CSS.",
         author: "WXZVRD",
         type: "GAME",
+        created_at: "2025-06-15T10:21:00.000Z"
     },
     {
         id: 2,
@@ -20,6 +21,7 @@ const mockBlogs: IBlogCard[] = [
         description: "Closures are a fundamental concept in JS — here’s why.",
         author: "Kyle Simpson",
         type: "JavaScript",
+        created_at: "2025-06-15T10:21:00.000Z"
     },
     {
         id: 3,
@@ -27,6 +29,7 @@ const mockBlogs: IBlogCard[] = [
         description: "Best practices for readable and maintainable code.",
         author: "Basarat Ali Syed",
         type: "TypeScript",
+        created_at: "2025-06-15T10:21:00.000Z"
     },
     {
         id: 4,
@@ -35,6 +38,7 @@ const mockBlogs: IBlogCard[] = [
             "Radix UI and Tailwind CSS.",
         author: "WXZVRD",
         type: "GAME",
+        created_at: "2025-06-15T10:21:00.000Z"
     },
     {
         id: 5,
@@ -42,6 +46,7 @@ const mockBlogs: IBlogCard[] = [
         description: "Closures are a fundamental concept in JS — here’s why.",
         author: "Kyle Simpson",
         type: "JavaScript",
+        created_at: "2025-06-15T10:21:00.000Z"
     },
     {
         id: 6,
@@ -49,6 +54,7 @@ const mockBlogs: IBlogCard[] = [
         description: "Best practices for readable and maintainable code.",
         author: "Basarat Ali Syed",
         type: "TypeScript",
+        created_at: "2025-06-15T10:21:00.000Z"
     },
 ];
 
@@ -57,9 +63,8 @@ export default function Home() {
 
   return (
       <div>
-        <h1>Main page!</h1>
-          <BlogSection title="Most rated reviews" blogs={mockBlogs} onViewAll={() => goTo('/reviews')}/>
-          <BlogSection title="Latest reviews" blogs={mockBlogs} onViewAll={() => goTo('/reviews')}/>
+          <BlogSection fetchUrl="/review/most-rated" title="Most rated reviews" onViewAll={() => goTo('/reviews')}/>
+          <BlogSection fetchUrl="/review/latest" title="Latest reviews" onViewAll={() => goTo('/reviews')}/>
           <Button onClick={() => goTo('/')}>Go main page</Button>
           <Button onClick={() => goTo('/reviews')}>Go reviews</Button>
           <Button onClick={() => goTo('/reviews/1')}>Go review id [1]</Button>

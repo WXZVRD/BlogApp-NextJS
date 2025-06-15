@@ -13,12 +13,12 @@ export default function Header() {
                 <div className="container mx-auto flex items-center justify-between py-4 px-6">
 
                     <nav className="flex items-center space-x-6">
-                        <Link href="/public"
+                        <Link href="/"
                               className="mr-20 font-extrabold text-gray-600 dark:text-white transition-colors">
-                            Your Logo
+                            WXZVRD
                         </Link>
 
-                        <Link href="/public" className="text-gray-600 dark:text-white  transition-colors">
+                        <Link href="/" className="text-gray-600 dark:text-white  transition-colors">
                             Home
                         </Link>
                         <Link href="/reviews"

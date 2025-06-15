@@ -7,6 +7,8 @@ export { Container } from "./Container/Container"
 export { Button } from "./Button/button"
 export { Avatar } from "./Avatar/avatar"
 export { Badge } from "./Badge/badge"
+export { Skeleton } from "./Skeleton/skeleton"
+export { default as RatingStars } from "./RatingStars/RatingStars"
 export { Card,
     CardAction,
     CardContent,
