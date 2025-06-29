@@ -1,4 +1,3 @@
-'use client'
 import {LoginForm} from "@/feautures/auth/login/ui/LoginForm";
 
 export default function LoginPage() {

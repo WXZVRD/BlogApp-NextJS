@@ -1,6 +1,3 @@
-'use client'
-
-
 import {SigninForm} from "@/feautures/auth/signin/ui/SigninForm";
 
 export default function SigninPage() {
