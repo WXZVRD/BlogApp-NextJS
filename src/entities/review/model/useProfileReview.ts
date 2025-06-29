@@ -9,7 +9,6 @@ export const useProfileReview = (authorId?: number) => {
             if (!authorId) return [];
             const res = await api.get(`/review/author/${authorId}`);
 
-            console.log(res)
             return res.data;
         },
         enabled: !!authorId,

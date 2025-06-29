@@ -22,22 +22,16 @@ export const ReviewFull = ({ id }: Props) => {
     const { data, isLoading, error } = useReviewById(id);
     const goTo = useRoute()
 
-    const { mutate: rateReview, isPending } = usePutReviewRating();
+    const { mutate: rateReview } = usePutReviewRating();
 
     if (isLoading) return <div>Loading...</div>;
 
     if (error || !data) {
-        console.error("❌ Ошибка загрузки или данных нет:", error);
         return <div>Review not found</div>;
     }
 
     const handlePutRating = (value: number) => {
-        if (!user) {
-            console.warn("⚠️ Пользователь не авторизован — рейтинг не отправлен");
-            return;
-        }
-
-        console.log("📥 Установка рейтинга", value);
+        if (!user) return;
 
         rateReview(
             {
@@ -48,11 +42,9 @@ export const ReviewFull = ({ id }: Props) => {
             {
                 onSuccess: () => {
                     toast.success("Рейтинг успешно установлен");
-                    console.log("✅ Успешно отправлен рейтинг");
                 },
                 onError: (err) => {
                     toast.error("Ошибка при отправке рейтинга");
-                    console.error("❌ Ошибка при отправке рейтинга:", err);
                 },
             }
         );

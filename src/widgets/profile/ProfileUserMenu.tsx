@@ -12,13 +12,13 @@ import {UserAvatar} from "@/feautures/user/userAvatar/ui/UserAvatar";
 import {useUpdateUser} from "@/entities/user/model/useUpdateUser";
 
 export default function ProfileUserMenu() {
-    const { user, setUser } = useAuth()
+    const { user } = useAuth()
     const [isEditing, setIsEditing] = useState(false);
 
     const [draftFirstName, setDraftFirstName] = useState('');
     const [draftLastName, setDraftLastName] = useState('');
 
-    const { mutate: updateUserData, isPending } = useUpdateUser();
+    const { mutate: updateUserData } = useUpdateUser();
 
     const startEdit = () => {
         if (user?.first_name && user?.last_name) {

@@ -8,7 +8,7 @@ import {uploadFile} from "@/feautures/uploader/api/uploaderApi";
 import {useUpdateUser} from "@/entities/user/model/useUpdateUser";
 import {IUser} from "@/entities/user/types";
 
-export function UserAvatar({ avatarUrl, fallback }: { avatarUrl?: string; fallback: string }) {
+export function UserAvatar({ fallback }: { fallback: string }) {
     const { user, setUser } = useAuth()
     const fileInputRef = useRef<HTMLInputElement | null>(null);
     const { mutate: updateUserData, isPending } = useUpdateUser();
@@ -16,33 +16,18 @@ export function UserAvatar({ avatarUrl, fallback }: { avatarUrl?: string; fallba
     const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file && user?.id) {
-            console.log("[Avatar Upload] Начало загрузки файла в Cloudinary...");
+            const data = await uploadFile(file);
 
-            try {
-                const data = await uploadFile(file);
-                console.log("[Avatar Upload] Файл успешно загружен в Cloudinary");
-                console.log("[Avatar Upload] Cloudinary response:", data);
+            setUser((prev: IUser) => {
+                return { ...prev, avatarUrl: data.url };
+            });
 
-                setUser((prev: IUser) => {
-                    console.log("[Avatar Upload] Обновление локального состояния пользователя");
-                    return { ...prev, avatarUrl: data.url };
-                });
-
-                console.log("[Avatar Upload] Отправка URL на сервер для обновления профиля...");
-
-                updateUserData({
-                    data: { avatarUrl: data.url },
-                    userId: user.id,
-                });
-            } catch (error) {
-                console.error("[Avatar Upload] Ошибка при загрузке или обновлении аватарки", error);
-            }
-        } else {
-            console.warn("[Avatar Upload] Файл не выбран или отсутствует user.id");
+            updateUserData({
+                data: { avatarUrl: data.url },
+                userId: user.id,
+            });
         }
     };
-
-
 
     return (
         <div className="relative group cursor-pointer">

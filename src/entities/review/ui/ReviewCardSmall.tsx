@@ -15,8 +15,6 @@ interface IReviewCardSmallProps {
 export default function ReviewCardSmall({ id, title, content, cover, createdAt, averageRating }: IReviewCardSmallProps) {
     const formatedCreatedAt: string = formattedDate(createdAt)
 
-    console.log(cover)
-
     return (
         <Link href={`/reviews/${id}`}>
             <div className="flex mb-2 gap-6 max-w-[400px] h-[100px] p-2 rounded-lg border border-gray-300 bg-white dark:border-[#27272A] dark:bg-[#1E1E1E] hover:shadow-lg transition-shadow duration-200 space-y-2 overflow-hidden">

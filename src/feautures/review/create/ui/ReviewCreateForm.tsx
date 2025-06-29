@@ -85,14 +85,10 @@ export function ReviewForm({ mode, initialData, onSubmit, isPending }: Props) {
         <Form {...form}>
             <form
                 onSubmit={form.handleSubmit((data) => {
-                    console.log("✅ Submit сработал:", data);
                     onSubmit(data);
-                }, (errors) => {
-                    console.log("❌ Ошибки валидации:", errors);
                 })}
                 className="space-y-6"
             >
-                {/* Cover */}
                 <FormField
                     control={form.control}
                     name="cover"
@@ -114,7 +110,6 @@ export function ReviewForm({ mode, initialData, onSubmit, isPending }: Props) {
                     )}
                 />
 
-                {/* Title */}
                 <FormField
                     control={form.control}
                     name="title"
@@ -129,7 +124,6 @@ export function ReviewForm({ mode, initialData, onSubmit, isPending }: Props) {
                     )}
                 />
 
-                {/* Type + Work (только для create) */}
                 {mode !== "edit" && (
                     <>
                         <FormField
@@ -165,7 +159,6 @@ export function ReviewForm({ mode, initialData, onSubmit, isPending }: Props) {
                     </>
                 )}
 
-                {/* Content */}
                 <FormField
                     control={form.control}
                     name="content"

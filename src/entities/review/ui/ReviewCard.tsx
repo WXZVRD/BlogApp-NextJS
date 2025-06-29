@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {IReview} from "@/entities/review/types";
-import {Avatar, RatingStars, Tooltip, TooltipContent, TooltipTrigger} from "@/shared/ui";
-import {AvatarFallback, AvatarImage} from "@/shared/ui/Avatar/avatar";
+import {RatingStars} from "@/shared/ui";
 import {formattedDate} from "@/shared/utils/dateFormater";
 
 interface IReviewCard extends IReview {}

@@ -1,6 +1,6 @@
 import { Input } from "@/shared/ui";
 import { useDebounce } from "@/shared/hooks/useDebounce";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSearchWork } from "@/feautures/work/model/useSearchWork";
 import WorkCardMini from "@/feautures/work/ui/WorkCardMini";
@@ -18,24 +18,6 @@ export default function WorkSearchInput({ type, onSelect }: Props) {
     const { data, isLoading, isFetching } = useSearchWork(type, debouncedQuery);
 
     const showList = isFocused && (data?.length > 0 || isLoading);
-
-    useEffect(() => {
-        if (inputValue) {
-            console.log(`[WorkSearchInput] Typed: "${inputValue}"`);
-        }
-    }, [inputValue]);
-
-    useEffect(() => {
-        if (debouncedQuery) {
-            console.log(`[WorkSearchInput] Debounced query: "${debouncedQuery}"`);
-        }
-    }, [debouncedQuery]);
-
-    useEffect(() => {
-        if (data && data.length) {
-            console.log(`[WorkSearchInput] Found ${data.length} results:`, data);
-        }
-    }, [data]);
 
     return (
         <div className="relative w-64 max-w-xs space-y-2">

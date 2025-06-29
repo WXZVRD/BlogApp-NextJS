@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { api } from '@/shared/api/axiosInstance';
-import {ReviewFilterParams} from "@/feautures/filter/model/types";
+import {ReviewFilterParams} from "@/feautures/filters/types";
 
 export const usePaginatedReviews = (filters: ReviewFilterParams) => {
     return useQuery({

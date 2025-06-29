@@ -8,7 +8,6 @@ export const usePutReviewRating = () => {
                          reviewId,
                          value,
                      }: { userId: number; reviewId: number; value: number }) => {
-            console.log("🚀 Отправка рейтинга:", { userId, reviewId, value });
             return putRating(userId, reviewId, value);
         },
     });

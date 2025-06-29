@@ -1,4 +1,4 @@
-import {Switch, Label} from "@/shared/ui/index";
+import {Switch, Label} from "@/shared/ui/";
 import { useTheme } from "next-themes"
 
 export default function ThemeSwitcher() {

@@ -39,7 +39,7 @@ export default function SearchInput() {
                                 <div className="w-3 h-3 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce [animation-delay:0s]" />
                                 <div className="w-3 h-3 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce [animation-delay:0.15s]" />
                                 <div className="w-3 h-3 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce [animation-delay:0.3s]" />
-                                <span className="text-sm ml-2">Поиск...</span>
+                                <span className="text-sm ml-2">Searching...</span>
                             </div>
                         ) : (
                             data.map((item: any) => (

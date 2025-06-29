@@ -2,7 +2,6 @@
 
 import ReviewCard from '@/entities/review/ui/ReviewCard';
 import { usePaginatedReviews } from '@/widgets/reviewListPagination/model/usePaginatedReview';
-import { useReviewFilters } from '@/feautures/filter/model/useReviewFilter';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
     Pagination,
@@ -13,6 +12,7 @@ import {
     PaginationNext,
     PaginationPrevious
 } from "@/shared/ui";
+import {useReviewFilters} from "@/feautures/filters/model/useReviewFilters";
 
 export const ReviewListWithPagination = () => {
     const filters = useReviewFilters();
