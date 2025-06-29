@@ -1,21 +1,11 @@
-'use client'
-import {Button} from "@/shared/ui/Button/button";
-import {useRoute} from "@/shared/hooks/useRoute";
+'use client';
+
+import {ReviewListWithPagination} from "@/widgets/reviewListPagination/ui/ReviewListWithPagination";
 
 export default function ReviewsPage() {
-    const goTo = useRoute()
-
-    return <div>
-        <h1>review page!</h1>
-        <Button onClick={() => goTo('/')}>Go main page</Button>
-        <Button onClick={() => goTo('/reviews')}>Go reviews</Button>
-        <Button onClick={() => goTo('/reviews/1')}>Go review id [1]</Button>
-        <Button onClick={() => goTo('/reviews/1/edit')}>Go edit review</Button>
-        <Button onClick={() => goTo('/reviews/create')}>Go create review</Button>
-        <Button onClick={() => goTo('/profile')}>Go profile</Button>
-        <Button onClick={() => goTo('/profile/edit')}>Go profile edit</Button>
-        <Button onClick={() => goTo('/auth/login')}>Go Log in</Button>
-        <Button onClick={() => goTo('/auth/sign-in')}>Go Sign In</Button>
-        <Button onClick={() => goTo('/admin')}>Go admin</Button>
-    </div>
-}
+    return (
+        <div className="container py-10 space-y-8">
+            <ReviewListWithPagination />
+        </div>
+    );
+};

@@ -1,21 +1,27 @@
 'use client'
-import {useRoute} from "@/shared/hooks/useRoute";
-import {Button} from "@/shared/ui/Button/button";
+import {useReviewById} from "@/widgets/review-full/model/useReviewById";
+import {useUpdateReview} from "@/feautures/review/create/model/useUpdateReview";
+import {ReviewForm} from "@/feautures/review/create/ui/ReviewCreateForm";
+import {use} from "react";
 
-export default function ReviewEditPage() {
-    const goTo = useRoute()
+export default function EditReviewPage({
+                                           params,
+                                       }: {
+    params: Promise<{ id: string }>;
+}) {
+    const { id } = use(params);
+    const reviewId = Number(id)
+    const { data, isLoading } = useReviewById(Number(reviewId));
+    const { mutate, isPending } = useUpdateReview();
 
-    return <div>
-        <h1>review page!</h1>
-        <Button onClick={() => goTo('/')}>Go main page</Button>
-        <Button onClick={() => goTo('/reviews')}>Go reviews</Button>
-        <Button onClick={() => goTo('/reviews/1')}>Go review id [1]</Button>
-        <Button onClick={() => goTo('/reviews/1/edit')}>Go edit review</Button>
-        <Button onClick={() => goTo('/reviews/create')}>Go create review</Button>
-        <Button onClick={() => goTo('/profile')}>Go profile</Button>
-        <Button onClick={() => goTo('/profile/edit')}>Go profile edit</Button>
-        <Button onClick={() => goTo('/auth/login')}>Go Log in</Button>
-        <Button onClick={() => goTo('/auth/sign-in')}>Go Sign In</Button>
-        <Button onClick={() => goTo('/admin')}>Go admin</Button>
-    </div>
+    if (isLoading) return <div>Loading...</div>;
+
+    return (
+        <ReviewForm
+            mode="edit"
+            initialData={data}
+            isPending={isPending}
+            onSubmit={(formData) => mutate({ reviewId, ...formData })}
+        />
+    );
 }

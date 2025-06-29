@@ -7,7 +7,7 @@ export default function ThemeSwitcher() {
     return (
         <div className="flex items-center space-x-2">
             <Switch onClick={() => setTheme(theme == "dark" ? "light" : "dark")} id="airplane-mode"/>
-            <Label htmlFor="airplane-mode">Airplane Mode</Label>
+            <Label htmlFor="airplane-mode">Dark Mode</Label>
         </div>
     )
 }

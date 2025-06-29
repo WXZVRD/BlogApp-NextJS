@@ -1,13 +1,13 @@
 import {Avatar, AvatarFallback, AvatarImage} from "@/shared/ui/Avatar/avatar";
 import {DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem} from "@/shared/ui/DropdownMenu/dropdown-menu";
-import SignOutButton from "@/feautures/auth/ui/SignOutButton";
-import useUser from "@/feautures/user/hooks/useUser";
+import SignOutButton from "@/feautures/auth/logout/ui/SignOutButton";
 import ThemeSwitcher from "@/feautures/theme/ui/ThemeSwitcher";
 import {useRoute} from "@/shared/hooks/useRoute";
+import {useAuth} from "@/shared/hooks/useAuth";
 
 
 export default function UserMenu() {
-    const [ user ] = useUser()
+    const { user } = useAuth()
     const goTo = useRoute()
 
 
@@ -15,7 +15,7 @@ export default function UserMenu() {
         <DropdownMenu>
             <DropdownMenuTrigger>
                 <Avatar>
-                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarImage src={user?.avatarUrl} />
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
@@ -23,7 +23,8 @@ export default function UserMenu() {
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onSelect={() => goTo('/profile')}>Profile</DropdownMenuItem>
-                { user.isAdmin && (
+                <DropdownMenuItem onSelect={() => goTo('/reviews/create')}>New review</DropdownMenuItem>
+                { user?.role === 'admin' && (
                     <>
                         <DropdownMenuItem onSelect={() => goTo('/admin')}>Admin Panel</DropdownMenuItem>
                     </>

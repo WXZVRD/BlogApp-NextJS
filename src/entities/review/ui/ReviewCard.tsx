@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {IReview} from "@/entities/review/types";
-import {Avatar, RatingStars} from "@/shared/ui";
+import {Avatar, RatingStars, Tooltip, TooltipContent, TooltipTrigger} from "@/shared/ui";
 import {AvatarFallback, AvatarImage} from "@/shared/ui/Avatar/avatar";
 import {formattedDate} from "@/shared/utils/dateFormater";
 
@@ -35,19 +35,6 @@ export default function ReviewCard({ id, title, content, cover, createdAt, updat
                 <p className="text-gray-600 dark:text-[#A1A1AA] text-sm line-clamp-3">{content.slice(0, 100)}...</p>
 
                 <div className="flex justify-between items-end">
-                    <div className="flex items-center gap-3">
-                        <Avatar className="w-8 h-8">
-                            <AvatarImage src={user.avatarUrl} alt={user.first_name}/>
-                            <AvatarFallback>{user.first_name[0]}{user.last_name[0]}</AvatarFallback>
-                        </Avatar>
-
-                        <div className="flex flex-col leading-tight">
-                            <span className="text-sm font-medium text-gray-900 dark:text-white">
-                                {user.first_name} {user.last_name}
-                            </span>
-                            <RatingStars count={ratingCount}/>
-                        </div>
-                    </div>
 
                     <span className="text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
                         {formatedCreatedAt}

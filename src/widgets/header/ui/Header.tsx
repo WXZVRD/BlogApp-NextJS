@@ -1,11 +1,12 @@
 'use client'
 import Link from "next/link";
-import { Button, Input, Container } from "@/shared/ui/index";
-import useUser from "@/feautures/user/hooks/useUser";
+import { Button, Container } from "@/shared/ui";
 import UserMenu from "@/feautures/user/ui/UserMenu";
+import {useAuth} from "@/shared/hooks/useAuth";
+import SearchInput from "@/feautures/fullTextSearch/ui/SearchInput";
 
 export default function Header() {
-    const [ isLoggedIn ] = useUser()
+    const { user } = useAuth()
 
     return (
         <header className="bg-white dark:bg-[#1E1E1E] shadow-sm sticky top-0 z-50">
@@ -27,25 +28,25 @@ export default function Header() {
                         </Link>
                     </nav>
 
-                    <Input
-                        type="text"
-                        placeholder="Full text search..."
-                        className="w-64 max-w-xs"
-                    />
+                    <SearchInput/>
 
                     <div className="flex items-center space-x-6">
-                        {isLoggedIn ? (
+                        {user ? (
                             <>
                                 <UserMenu/>
                             </>
                         ) : (
-                            <>w
-                                <Button variant="outline" className="ml-2">
-                                    Sign In
-                                </Button>
-                                <Button>
-                                    Log In
-                                </Button>
+                            <>
+                                <Link href="/auth/sign-in" className=" no-underline focus:outline-none focus:ring-0 text-gray-600 dark:text-white transition-colors">
+                                    <Button variant="outline" className="ml-2">
+                                        Sign In
+                                    </Button>
+                                </Link>
+                                <Link href="/auth/login" className=" no-underline focus:outline-none focus:ring-0 text-gray-600 dark:text-white transition-colors">
+                                    <Button>
+                                        Log In
+                                    </Button>
+                                </Link>
                             </>
                         )}
                     </div>
