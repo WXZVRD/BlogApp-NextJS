@@ -1,21 +1,20 @@
-# 🗂 BlogApp-Ultra Backend
+# 🗂 BlogApp-Ultra Frontend
 
-![NestJS](https://img.shields.io/badge/Backend-NestJS-red?logo=nestjs)
+![Next.js](https://img.shields.io/badge/Frontend-Next.js-black?logo=nextdotjs)
 ![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript)
-![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql)
-![Redis](https://img.shields.io/badge/Cache-Redis-DC382D?logo=redis)
-![TypeORM](https://img.shields.io/badge/ORM-TypeORM-262627?logo=typeorm)
+![React](https://img.shields.io/badge/Framework-React-61DAFB?logo=react)
+![TailwindCSS](https://img.shields.io/badge/Styling-TailwindCSS-38B2AC?logo=tailwindcss)
+![Radix UI](https://img.shields.io/badge/UI-Radix_UI-161618?logo=radix-ui)
+![Framer Motion](https://img.shields.io/badge/Animation-Framer_Motion-0055FF?logo=framer)
+![TanStack Query](https://img.shields.io/badge/State-TanStack_Query-FF4154?logo=reactquery)
+![React Hook Form](https://img.shields.io/badge/Forms-React_Hook_Form-EC5990?logo=reacthookform)
+![Zod](https://img.shields.io/badge/Validation-Zod-3068B7?logo=zod)
 ![Socket.IO](https://img.shields.io/badge/Websockets-Socket.IO-010101?logo=socketdotio)
-![Swagger](https://img.shields.io/badge/Docs-Swagger-85EA2D?logo=swagger)
-![Passport](https://img.shields.io/badge/Auth-Passport-34E27A?logo=passport)
-![JWT](https://img.shields.io/badge/Security-JWT-black?logo=jsonwebtokens)
-![Docker](https://img.shields.io/badge/DevOps-Docker-2496ED?logo=docker)
-![Elasticsearch](https://img.shields.io/badge/Search-Elasticsearch-005571?logo=elasticsearch)
-![Cloudinary](https://img.shields.io/badge/Storage-Cloudinary-4285F4?logo=cloudinary)
-![Jest](https://img.shields.io/badge/Tests-Jest-C21325?logo=jest)
+![Axios](https://img.shields.io/badge/HTTP-Axios-5A29E4?logo=axios)
+![Markdown](https://img.shields.io/badge/Markdown-MD_Editor-000000?logo=markdown)
+![Next Themes](https://img.shields.io/badge/Themes-Next_Themes-111111?logo=vercel)
 ![ESLint](https://img.shields.io/badge/Lint-ESLint-4B32C3?logo=eslint)
 ![Prettier](https://img.shields.io/badge/Format-Prettier-F7B93E?logo=prettier)
-
 
 > **Русский:** Платформа для рецензий на фильмы, книги и мультфильмы с поддержкой markdown-разметки, комментариев, лайков и рейтингов. Встроенная админ-панель обеспечивает управление пользователями и контентом.
 
